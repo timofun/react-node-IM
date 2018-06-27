@@ -1,23 +1,29 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {NavBar} from 'antd-mobile'
-import {Switch, Route} from 'react-router-dom'
+import {Route, Redirect} from 'react-router-dom'
 import NavLinkBar from '../navlink/navlink'
 import Boss from '../../component/boss/boss'
 import Genius from '../../component/genius/genius'
 import User from '../../component/user/user'
-
-function Msg() {
-  return <h2>消息列表页面</h2>
-}
+import Msg from '../msg/msg'
+import {getMsgList, recvMsg} from '../../redux/chat.redux'
+import QueueAnim from 'rc-queue-anim'
 
 @connect(
-  state => state
+  state => state,
+  {getMsgList, recvMsg}
 )
-class Dashboard extends React.Component {
+class Dashboard extends React.PureComponent {
+  componentDidMount() {
+    if (!this.props.chat.chatmsg.length) {
+      this.props.getMsgList()
+      this.props.recvMsg()
+    }
+
+  }
 
   render() {
-    console.log('dash', this.props.location)
     const {pathname} = this.props.location
     const user = this.props.user
     const navList = [
@@ -52,28 +58,28 @@ class Dashboard extends React.Component {
         component: User
       }
     ]
-    const title = navList.find(v => v.path === pathname)
-    if (!title) {
-      this.props.history.push('/login')
-      return null
-    }
-    const navTitle = title.title
-    return (
-      <div>
-        <NavBar className='fixd-header' mode='dard'>{navTitle}</NavBar>
-        <div style={{marginTop: 45}}>
-          <Switch>
-            {navList.map(v => (
-              <Route key={v.path} path={v.path} component={v.component}></Route>
-            ))}
-          </Switch>
+    // console.log(this.props)
+
+    const page = navList.find(v => v.path === pathname)
+    // console.log(page)
+
+    return page ? (
+        <div>
+          <NavBar className='fixd-header' mode='dard'>{page.title}</NavBar>
+          <div style={{marginTop: 45}}>
+
+            <QueueAnim type={'scaleX'} duration={500}>
+
+              <Route key={page.path} path={page.path} component={page.component}></Route>
+
+            </QueueAnim>
+
+          </div>
+
+          <NavLinkBar data={navList}></NavLinkBar>
+
         </div>
-
-        <NavLinkBar data={navList}></NavLinkBar>
-
-      </div>
-    )
-
+      ) : <Redirect to='/msg'></Redirect>
 
   }
 
