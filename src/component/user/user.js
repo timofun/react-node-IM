@@ -9,17 +9,14 @@ import {Redirect} from 'react-router-dom'
   state => state.user,
   {logoutSubmit}
 )
-class User extends React.Component {
+class User extends React.PureComponent {
   constructor(props) {
     super(props)
-    console.log('userprops', props)
     this.logout = this.logout.bind(this)
   }
 
   logout() {
-    console.log('logout')
     const alert = Modal.alert
-
     alert('注销', '确认退出登录吗???', [
       {text: '取消', onPress: () => console.log('cancel')},
       {
@@ -33,12 +30,11 @@ class User extends React.Component {
 
   render() {
     const props = this.props
-    if (!props.user) {
-      return null
-    }
+    // if (!props.user) {
+    //   return null
+    // }
     const Item = List.Item
     const Brief = Item.Brief
-    console.log('获取到user', props)
     return props.user ? (
       <div>
         <Result

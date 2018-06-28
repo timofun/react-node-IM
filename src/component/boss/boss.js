@@ -11,11 +11,9 @@ class Boss extends React.Component {
 
   componentDidMount() {
     this.props.getUserList('genius')
-    console.log('bossprops', this.props.userlist)
   }
 
   render() {
-    console.log('bossprops2', this.props)
     return <UserCard userlist={this.props.userlist}></UserCard>
   }
 

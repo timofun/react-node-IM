@@ -26,7 +26,7 @@ export default class App extends React.Component{
 		return this.state.hasError
 		? <h2 className="error-msg">出错了</h2>
 		:(
-			<div>
+			<div className="index-container">
 				<AuthRoute></AuthRoute>
 				<Switch>
 					<Route path='/bossinfo' component={BossInfo}></Route>

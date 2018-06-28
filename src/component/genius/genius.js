@@ -11,11 +11,9 @@ class Genius extends React.Component {
 
   componentDidMount() {
     this.props.getUserList('boss')
-    console.log('Geniusprops', this.props)
   }
 
   render() {
-    console.log('Geniusprops1', this.props)
     return <UserCard userlist={this.props.userlist}></UserCard>
   }
 

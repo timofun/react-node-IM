@@ -72,8 +72,6 @@ export function login({user, pwd}) {
         }
       })
   }
-
-
 }
 
 export function regisger({user, pwd, repeatpwd, type}) {

@@ -1,0 +1,93 @@
+.login-header {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.4rem 0.5rem;
+  text-align: right;
+  color: #f26531;
+}
+
+.btn-item {
+  text-align: center;
+}
+
+.login {
+  display: inline-block;
+  margin: 0 auto;
+  outline: 0 none;
+  border: 0;
+  color: #ffffff;
+  padding: 0.25rem 1rem;
+  border-radius: 0.3rem;
+  background: #f26531;
+  font-size: 16px;
+  font-family: Microsoft YaHei, arial, helvetica;
+}
+
+.login:hover {
+  cursor: pointer;
+}
+
+.forget-pwd {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0.2rem 0;
+  text-align: center;
+  font-size: 12px;
+  color: #dedede;
+}
+
+.content-text {
+  margin-bottom: 0.7rem;
+}
+
+.content-text > span {
+  display: flex;
+  padding: 12px 0;
+  width: 5rem;
+  margin: auto;
+  border-bottom: 1px solid #dedede;
+}
+
+.content-text > span img {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin-right: 8px;
+}
+
+.content-text > span input {
+  display: inline-block;
+  flex: 1;
+  border: 0;
+  resize: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #dedede;
+}
+
+.content-text > span input::-webkit-input-placeholder {
+  color: #dedede;
+}
+
+.content-text > span input:focus {
+  outline-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+.register-and-login .am-list-body {
+  margin-top: 0.2rem;
+  background-color: transparent;
+}
+
+.register-and-login .am-list-body .am-list-item{
+  width: 5rem;
+  padding: 0;
+  margin: auto;
+  color: #dedede;
+  background-color: transparent;
+}
+
+.register-and-login .am-list-item .am-list-line .am-list-content{
+  color: #dedede;
+}

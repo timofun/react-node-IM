@@ -1,8 +1,8 @@
 .logo-container{
-	padding: 40px 0;
+	padding: 0.8rem 0 0.5rem 0;
 	text-align: center;
 }
 
 .logo-container img{
-	width: 60%;
+	width: 50%;
 }

@@ -1,3 +1,6 @@
+html {
+  font-size: 13.3333333vw
+}
 body {
   font-family: Microsoft YaHei, arial, helvetica;
   margin: 0;
@@ -20,12 +23,13 @@ body {
 
 .index-container {
   position: fixed;
-  background-image: url(./bg4.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   width: 100%;
   height: 100%;
+  background-image: url(./bg2.png);
+  /*background-size: 100% 100%;*/
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .index-container::after {
@@ -36,7 +40,7 @@ body {
   left: 0;
   top: 0;
   background: inherit;
-  filter: blur(2px);
+  filter: blur(10px);
   z-index: -1;
 }
 

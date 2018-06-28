@@ -1,11 +1,14 @@
 import React from 'react'
 import Logo from '../../component/logo/logo'
-import {List, InputItem, WingBlank, WhiteSpace, Button} from 'antd-mobile'
+import {WingBlank, WhiteSpace} from 'antd-mobile'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {login} from '../../redux/user.redux'
 import imoocFrom from '../../component/imooc-form/imooc-form.js'
 import QueueAnim from 'rc-queue-anim'
+import './login.css'
+import phone from './phone.png'
+import pwd from './pwd.png'
 // function hello(){
 // 	console.log('hello imooc I love React')
 // }
@@ -77,32 +80,38 @@ class Login extends React.Component {
       <div>
 
         {(this.props.redirectTo && this.props.redirectTo !== '/login') ? <Redirect to={this.props.redirectTo}/> : null}
+        <div className="login-header" onClick={this.register}>注册</div>
         <Logo></Logo>
         <WingBlank>
-          <List>
-            {this.props.msg ? <p className='error-msg'>{this.props.msg}</p> : null}
-            <InputItem
-              onChange={v => this.props.handleChange('user', v)}
-
-            >用户</InputItem>
-            <WhiteSpace/>
-            <InputItem
-              onChange={v => this.props.handleChange('pwd', v)}
-              type='password'
-            >密码</InputItem>
-          </List>
+          {this.props.msg ? <p className='error-msg'>{this.props.msg}</p> : null}
+          <div className="content-text">
+            <span className="phoneId">
+              <img src={phone} alt=""/>
+              <input type="text" className="input" placeholder="请输入帐号" onChange={(event) => this.props.handleChange('user', event)} />
+            </span>
+            <span className="pwdId">
+              <img src={pwd} alt="" />
+              <input type="password" className="input" placeholder="请输入密码" onChange={(event) => this.props.handleChange('pwd', event)} />
+            </span>
+          </div>
           <QueueAnim delay={300}>
             <WhiteSpace/>
-            <Button key='login' onClick={this.handleLogin} type='primary'>登录</Button>
+            <div className="btn-item">
+              <button className="login" onClick={this.handleLogin}>登 录</button>
+            </div>
+            <div className="btn-item">
+              <span className="forget-pwd">忘记密码？</span>
+            </div>
+            {/*<Button key='login' onClick={this.handleLogin} type='primary'>登录</Button>*/}
             <WhiteSpace/>
-            <Button key='register' onClick={this.register} type='primary'>注册</Button>
+            {/*<Button key='register' onClick={this.register} type='primary'>注册</Button>*/}
           </QueueAnim>
         </WingBlank>
 
 
       </div>
-    )
+  )
   }
-}
+  }
 
-export default Login
+  export default Login
