@@ -29,17 +29,17 @@ class Dashboard extends React.PureComponent {
     const navList = [
       {
         path: '/boss',
-        text: '牛人',
+        text: '女神',
         icon: 'boss',
-        title: '牛人列表',
+        title: '女神列表',
         component: Boss,
         hide: user.type === 'genius'
       },
       {
         path: '/genius',
-        text: 'boss',
+        text: '男神',
         icon: 'job',
-        title: 'BOSS列表',
+        title: '男神列表',
         component: Genius,
         hide: user.type === 'boss'
       },
