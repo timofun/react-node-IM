@@ -30,16 +30,16 @@ class Dashboard extends React.PureComponent {
       {
         path: '/boss',
         text: '女神',
-        icon: 'boss',
-        title: '女神列表',
+        icon: 'women',
+        title: '女神',
         component: Boss,
         hide: user.type === 'genius'
       },
       {
         path: '/genius',
         text: '男神',
-        icon: 'job',
-        title: '男神列表',
+        icon: 'man',
+        title: '男神',
         component: Genius,
         hide: user.type === 'boss'
       },
@@ -47,7 +47,7 @@ class Dashboard extends React.PureComponent {
         path: '/msg',
         text: '消息',
         icon: 'msg',
-        title: '消息列表',
+        title: '消息',
         component: Msg
       },
       {
@@ -66,16 +66,11 @@ class Dashboard extends React.PureComponent {
     return page ? (
         <div>
           <NavBar className='fixd-header' mode='dard'>{page.title}</NavBar>
-          <div style={{marginTop: 45}}>
-
             <QueueAnim type={'scaleX'} duration={500}>
 
               <Route key={page.path} path={page.path} component={page.component}></Route>
 
             </QueueAnim>
-
-          </div>
-
           <NavLinkBar data={navList}></NavLinkBar>
 
         </div>

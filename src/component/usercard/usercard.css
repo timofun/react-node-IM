@@ -1,0 +1,20 @@
+.usercard-list {
+  display: flex;
+  margin-bottom: 0.1rem;
+  border-radius: 0.1rem;
+  background: rgba(255, 255, 256, 0.5);
+}
+
+.usercard-list img {
+  width: 1.2rem;
+}
+
+.usercard-list .desc {
+  display: flex;
+  flex-direction: column;
+}
+.usercard-list .desc .name, .usercard-list .desc .text {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}

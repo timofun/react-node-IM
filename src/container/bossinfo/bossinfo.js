@@ -32,7 +32,7 @@ class BossInfo extends React.Component {
     return (
       <div>
         {redirect && redirect !== path ? <Redirect to={this.props.redirectTo}></Redirect> : null}
-        <NavBar mode="dark">BOSS完善信息页</NavBar>
+        <NavBar mode="dark">女神完善信息页</NavBar>
         <AvatarSelector
           selectAvatar={(imgname) => {
             this.setState({
@@ -47,13 +47,13 @@ class BossInfo extends React.Component {
           公司名称
         </InputItem>
         <InputItem onChange={(v) => this.onChange('money', v)}>
-          职位薪资
+          年薪
         </InputItem>
         <TextareaItem
           onChange={(v) => this.onChange('desc', v)}
           rows={3}
           autoHeight
-          title='职位要求'
+          title='自我介绍'
         >
 
         </TextareaItem>

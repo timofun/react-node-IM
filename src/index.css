@@ -32,6 +32,17 @@ body {
   background-size: cover;
 }
 
+.index-container .am-navbar, .index-container .am-tab-bar .am-tab-bar-bar {
+  position: fixed;
+  width: 100%;
+  background-color: rgb(255, 255, 255)!important;
+  z-index: 1;
+}
+
+.index-container .am-navbar-title {
+  color: #f26531;
+}
+
 .index-container::after {
   content: "";
   width: 100%;
@@ -47,8 +58,8 @@ body {
 .am-tab-bar {
   position: fixed;
   bottom: 0;
+  height: 50px;
   width: 100%;
-  height: auto !important;
 }
 
 .fixd-header.am-navbar {
@@ -78,9 +89,13 @@ body {
   margin-top: 0;
 }
 
+.am-navbar-left-icon {
+  color: #f26531;
+}
+
 .stick-footer {
-  z-index: 10;
-  position: absolute;
+  z-index: 1;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }

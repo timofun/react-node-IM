@@ -1,10 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Card, WhiteSpace, WingBlank} from 'antd-mobile'
+import {WingBlank} from 'antd-mobile'
 import {withRouter} from 'react-router-dom'
+import QueueAnim from 'rc-queue-anim'
+import './usercard.css'
 
 @withRouter
 class UserCard extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      height: document.documentElement.clientHeight - 90,
+    }
+  }
   static propTypes = {
     userlist: PropTypes.array.isRequired
   }
@@ -14,36 +22,27 @@ class UserCard extends React.Component {
   }
 
   render() {
-    const Header = Card.Header
-    const Body = Card.Body
     return (
       <WingBlank>
-        <WhiteSpace></WhiteSpace>
-        {this.props.userlist.map(v => (
-          v.avatar ? (<div key={v._id} onClick={() => this.handleClick(v)}>
-            <Card>
-              <Header
-                title={v.user}
-                thumb={require(`../img/${v.avatar}.png`)}
-                extra={<span>{v.title}</span>}
-              ></Header>
-              <Body>
-              {v.type === 'boss' ? <div>公司:{v.company}</div> : null}
-
-              {v.desc.split('\n').map(d => (
-                <div key={d}>{d}</div>
-              ))}
-              {v.type === 'boss' ? <div>薪资:{v.money}</div> : null}
-              </Body>
-            </Card>
-            <WhiteSpace></WhiteSpace>
-          </div>) : null
-
-        ))}
+        <div style={{minHeight: this.state.height}}>
+          <QueueAnim delay={50}>
+            {this.props.userlist.map(v => (
+              v.avatar ? (
+                <div key={v._id} onClick={() => this.handleClick(v)} className="usercard-list">
+                  <span>
+                    <img src={require(`../img/avatar.png`)} alt=""/>
+                  </span>
+                  <div className="desc">
+                    <span className="name">{v.title}</span>
+                    <span className="text">2018-08-09</span>
+                  </div>
+                </div>
+              ) : null
+            ))}
+          </QueueAnim>
+        </div>
       </WingBlank>
     )
-
-
   }
 }
 
